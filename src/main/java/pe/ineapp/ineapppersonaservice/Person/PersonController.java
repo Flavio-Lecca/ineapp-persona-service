@@ -15,31 +15,39 @@ public class PersonController {
     @GetMapping
     @RequestMapping("/getAll")
     public List<Person> getAll(){
-        LocalDate date = LocalDate.of(2002, Month.JULY, 31);
+        //LocalDate date = LocalDate.of(2002, Month.JULY, 31);
 
         Person person = Person.builder()
                 .id(1L)
                 .name("Flavio")
                 .lastName("Lecca")
                 .dni("72115773")
-                .email("fla.lecca31@gmail.com")
-                .birthDate(date).build();
+                .course("Matematica")
+                .build();
 
-        return List.of(person);
+        Person person2 = Person.builder()
+                .id(2L)
+                .name("Claudia")
+                .lastName("Lecca")
+                .dni("72115764")
+                .course("Lenguaje")
+                .build();
+
+        return List.of(person,person2);
     }
 
     @GetMapping
     @RequestMapping("/getbyid")
     public Person getById(){
-        LocalDate date = LocalDate.of(2002, Month.JULY, 31);
+        //LocalDate date = LocalDate.of(2002, Month.JULY, 31);
 
         Person person = Person.builder()
                 .id(1L)
                 .name("Flavio")
                 .lastName("Lecca")
                 .dni("72115773")
-                .email("fla.lecca31@gmail.com")
-                .birthDate(date).build();
+                .course("fla.lecca31@gmail.com")
+                .build();
 
         return person;
     }

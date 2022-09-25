@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(
         name = "Person",
         uniqueConstraints = {
-                @UniqueConstraint(name="person_mail_unique", columnNames = "email"),
+                //@UniqueConstraint(name="person_mail_unique", columnNames = "email"),
                 @UniqueConstraint(name="person_dni_unique", columnNames = "dni")
         }
 )
@@ -31,6 +31,6 @@ public class Person {
     String name;
     String lastName;
     String dni;
-    String email;
-    LocalDate birthDate;
+    String course;
+    //LocalDate birthDate;
 }
