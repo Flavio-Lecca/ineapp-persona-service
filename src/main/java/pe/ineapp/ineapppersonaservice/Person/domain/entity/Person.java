@@ -1,4 +1,4 @@
-package pe.ineapp.ineapppersonaservice.Person;
+package pe.ineapp.ineapppersonaservice.Person.domain.entity;
 
 import lombok.*;
 
@@ -9,12 +9,14 @@ import java.time.LocalDate;
 @Table(
         name = "Person",
         uniqueConstraints = {
-                //@UniqueConstraint(name="person_mail_unique", columnNames = "email"),
+                @UniqueConstraint(name="person_mail_unique", columnNames = "email"),
                 @UniqueConstraint(name="person_dni_unique", columnNames = "dni")
         }
 )
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     @SequenceGenerator(
@@ -31,6 +33,6 @@ public class Person {
     String name;
     String lastName;
     String dni;
-    String course;
-    //LocalDate birthDate;
+    String email;
+    LocalDate birthDate;
 }
