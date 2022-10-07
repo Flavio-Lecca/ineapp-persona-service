@@ -21,25 +21,38 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping
-    @RequestMapping("/getAll")
+    @RequestMapping("/getall")
     public UserResponse getAll(){
         return personService.getAll();
     }
 
     @GetMapping
-    @RequestMapping("/getbyid")
-    public Person getById(){
-        return null;
+    @RequestMapping("/getbydni")
+    public UserResponse getByDni(@RequestParam String dni){
+        return personService.getByDni(dni);
     }
 
     //PUT
+    @PutMapping
+    @RequestMapping("/updateuser")
+    public ResponseEntity<BasicResponse> updateUser(@RequestBody UserRequest request, @RequestParam String dni){
+        BasicResponse response = personService.updateUser(request, dni);
+        return ResponseEntity.status(response.getCode()).body(response);
+    }
 
     //POST
     @PostMapping
     @RequestMapping("/adduser")
-    public ResponseEntity<BasicResponse> adduser(@RequestBody UserRequest request){
+    public ResponseEntity<BasicResponse> addUser(@RequestBody UserRequest request){
         BasicResponse response = personService.addUser(request);
         return ResponseEntity.status(response.getCode()).body(response);
     }
     //DELETE
+    @DeleteMapping
+    @RequestMapping("/deleteuser")
+    public ResponseEntity<BasicResponse> deleteUser(@RequestParam String dni){
+        BasicResponse response = personService.deleteUser(dni);
+        return ResponseEntity.status(response.getCode()).body(response);
+    }
+
 }
