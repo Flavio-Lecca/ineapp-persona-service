@@ -16,6 +16,7 @@ import java.time.LocalDate;
 )
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class Person {
 
@@ -35,7 +36,4 @@ public class Person {
     String dni;
     String email;
     LocalDate birthDate;
-
-    public Person() {
-    }
 }
