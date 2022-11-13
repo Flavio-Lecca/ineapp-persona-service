@@ -1,5 +1,6 @@
 package pe.ineapp.ineapppersonaservice.Person.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +16,6 @@ import java.time.LocalDate;
 )
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class Person {
 
@@ -35,4 +35,7 @@ public class Person {
     String dni;
     String email;
     LocalDate birthDate;
+
+    public Person() {
+    }
 }
